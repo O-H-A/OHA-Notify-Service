@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+#  zookeeper:
+#    image: wurstmeister/zookeeper:latest
+#    container_name: zookeeper
+#    ports:
+#      - "2181:2181"
+#
+#  kafka:
+#    image: wurstmeister/kafka:latest
+#    container_name: kafka
+#    ports:
+#      - "9092:9092"
+#    depends_on:
+#      - zookeeper
+#    environment:
+#      KAFKA_ADVERTISED_HOST_NAME: ${KAFKA_HOST}
+#      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+#      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://${KAFKA_HOST}:9092
+
+  fastapi:
+    build:
+      context: .
+    restart: always
+    environment:
+      - TZ=Asia/Seoul
+      - KAFKA_HOST=${KAFKA_HOST}
+      - KAFKA_PORT=${KAFKA_PORT}
+      - EUREKA_SERVER=${EUREKA_SERVER}
+      - DB_URL=${DB_URL}
+      - PROFILE=${PROFILE}
+      - HOST=${HOST}
+      - PORT=${PORT}
+    container_name: notify-service
+    ports:
+      - "8040:8040"
