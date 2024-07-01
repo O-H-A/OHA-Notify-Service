@@ -1,6 +1,6 @@
 import asyncio
 
-from app.config.env.env import KAFKA_HOST, KAFKA_PORT, PROFILE, KAFKA_OFFSET
+from app.config.env.env import KAFKA_HOST, KAFKA_PORT, PROFILE
 
 KAFKA_TOPICS = [
     f'post-like-user-{PROFILE}'
