@@ -2,6 +2,7 @@ import os
 
 PROFILE = os.environ.get("PROFILE", 'local')
 DB_URL = os.environ.get("DB_URL")
+GATEWAY_URL = os.environ.get("GATEWAY_URL")
 
 DB_SCHEMA = None
 HOST = None
@@ -9,6 +10,8 @@ PORT = None
 EUREKA_SERVER = None
 EUREKA_APP_NAME = None
 RELOAD = None
+KAFKA_HOST = os.environ.get("KAFKA_HOST")
+KAFKA_PORT = os.environ.get("KAFKA_PORT")
 
 if PROFILE == 'local':
     DB_SCHEMA = 'dev'
